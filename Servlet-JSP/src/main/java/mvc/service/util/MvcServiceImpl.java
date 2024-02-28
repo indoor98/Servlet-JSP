@@ -1,5 +1,9 @@
 package mvc.service.util;
 
+import java.util.List;
+
+import mvc.domain.dto.RequestUserDTO;
+import mvc.domain.dto.ResponseUserDTO;
 import mvc.model.dao.MvcDao;
 
 public class MvcServiceImpl implements MvcService {
@@ -17,9 +21,9 @@ public class MvcServiceImpl implements MvcService {
 	}
 
 	@Override
-	public void login() {
+	public ResponseUserDTO login(RequestUserDTO dto) {
 		System.out.println("debug >>>> service login()");
-		mvcDao.loginRow();
+		return mvcDao.loginRow(dto);
 	}
  
 	@Override
@@ -33,5 +37,13 @@ public class MvcServiceImpl implements MvcService {
 		System.out.println("debug >>>> service delete()");
 		mvcDao.deleteRow();
 	}
+
+	@Override
+	public List<ResponseUserDTO> select() {
+		System.out.println("debug >>>> service select()");
+		return mvcDao.selectRow();
+	}
+	
+	
 
 }

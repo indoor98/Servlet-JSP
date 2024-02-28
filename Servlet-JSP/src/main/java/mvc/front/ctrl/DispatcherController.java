@@ -34,7 +34,7 @@ public class DispatcherController extends HttpServlet {
 		
 		Controller ctrl = factory.getCtrl(request.getRequestURI());
 		
-		View view = ctrl.execute();
+		View view = ctrl.execute(request, response);
 		
 		if (view.isFlag() == true ) {
 			RequestDispatcher rd = request.getRequestDispatcher( view.getResponseJsp());

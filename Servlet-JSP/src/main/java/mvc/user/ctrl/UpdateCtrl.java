@@ -1,5 +1,8 @@
 package mvc.user.ctrl;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import mvc.service.util.MvcService;
 import mvc.service.util.MvcServiceImpl;
 import mvc.user.ctrl.util.Controller;
@@ -16,7 +19,7 @@ public class UpdateCtrl implements Controller {
 		this.service = service;
 	}
 	@Override
-	public View execute() {
+	public View execute(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("debug >>>> UpdateCtrl");
 		service.update();
 		View view = new View();
