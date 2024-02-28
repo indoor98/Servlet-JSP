@@ -1,14 +1,45 @@
 package test.ctrl;
 
-import java.io.IOException;
+import mvc.service.util.MvcService;
+import mvc.user.ctrl.util.Controller;
+import mvc.util.view.View;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+public class IndexController implements Controller {
 
+	private MvcService service;
+	
+	public IndexController() {
+		
+	}
+	
+	public IndexController(MvcService service) {
+		this.service = service;
+	}
+	
+	
+	@Override
+	public View execute() {
+		System.out.println("debug >>>> IndexController execute()");
+		View view = new View();
+		view.setFlag(true);
+		view.setResponseJsp("/main.jsp");
+		
+		return view;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
 @WebServlet("/index.encore")
 public class IndexController extends HttpServlet{
 	@Override
@@ -19,3 +50,4 @@ public class IndexController extends HttpServlet{
 	}
 		
 }
+*/

@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 
 <script>
-	location.href = "index.encore";
+	location.href = "index.hanwha";
 </script>
