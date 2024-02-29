@@ -28,7 +28,6 @@ public class IndexController implements Controller {
 		View view = new View();
 		view.setFlag(true);
 		view.setResponseJsp("/main.jsp");
-		
 		return view;
 	}
 	

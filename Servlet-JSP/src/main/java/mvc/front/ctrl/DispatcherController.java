@@ -1,6 +1,7 @@
 package mvc.front.ctrl;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mvc.bean.factory.BeanFactory;
 import mvc.user.ctrl.util.Controller;
@@ -28,13 +30,17 @@ public class DispatcherController extends HttpServlet {
 	}
 
 	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		System.out.println("Debug >>>> FrontController process");
 		System.out.println("client request path : " + request.getRequestURI());
+	
+		
 		BeanFactory factory = BeanFactory.getInstance();
 		
 		Controller ctrl = factory.getCtrl(request.getRequestURI());
 		
 		View view = ctrl.execute(request, response);
+		
 		
 		if (view.isFlag() == true ) {
 			RequestDispatcher rd = request.getRequestDispatcher( view.getResponseJsp());
